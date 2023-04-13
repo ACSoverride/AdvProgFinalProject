@@ -1,0 +1,3 @@
+/home/matti/CLionProjects/AdvProgFinalProject/cmake-build-debug/CMakeFiles/AdvProgFinalProject.dir
+/home/matti/CLionProjects/AdvProgFinalProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/matti/CLionProjects/AdvProgFinalProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
