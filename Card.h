@@ -14,11 +14,12 @@ protected:
 
 class Spell : public Card{
 public:
-    Spell(int cmc, string name, string color);
+    Spell(int cmc, string ability, string name, string color);
     string getCard();
-    string setSpell(int cmc, string name, string color);
+    void setSpell(int cmc);
 protected:
     int cmc;
+    string ability;
 };
 
 enum sorcType {
@@ -30,8 +31,17 @@ class Sorcery : public Spell{
 public:
     Sorcery(string ability, sorcType type, int cmc, string name, string color);
     string getCard();
-    void setAbility(string ability);
+    void setSorc(sorcType type;);
 protected:
-    string ability;
     sorcType type;
+};
+
+class Creature : public Spell {
+public:
+    Creature(int power, int toughness, string ability, int cmc, string name, string color);
+    string getCard();
+    void setCreature(int power, int toughness,);
+protected:
+    int power;
+    int toughness;
 };
