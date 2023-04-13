@@ -3,4 +3,4 @@ project(AdvProgFinalProject)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AdvProgFinalProject main.cpp)
+add_executable(AdvProgFinalProject main.cpp Card.cpp Card.h)
