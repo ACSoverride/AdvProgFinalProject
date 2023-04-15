@@ -1,7 +1,7 @@
 //
 // Created by matti on 4/13/23.
 //
-
+using namespace std;
 class Card {
 public:
     Card(string name, string color);
@@ -22,26 +22,52 @@ protected:
     string ability;
 };
 
-enum sorcType {
-    instant = 0,
-    sorcery = 1,
-};
-
 class Sorcery : public Spell{
 public:
-    Sorcery(string ability, sorcType type, int cmc, string name, string color);
+    Sorcery(string ability, bool type, int cmc, string name, string color);
     string getCard();
-    void setSorc(sorcType type;);
+    void setSorc(bool type);
 protected:
-    sorcType type;
+	//false = instant and true = sorcery
+    bool type;
 };
 
 class Creature : public Spell {
 public:
     Creature(int power, int toughness, string ability, int cmc, string name, string color);
     string getCard();
-    void setCreature(int power, int toughness,);
+    void setCreature(int power, int toughness);
 protected:
     int power;
     int toughness;
+};
+
+class Equipment : public Spell {
+public:
+	Equipment(int equipCost, int cmc, string ability, string name, string color);
+	string getCard();
+	void setEquip(int equipCost);
+
+protected:
+	int equipCost;
+};
+
+class Land : public Card {
+public:
+	Land (bool snow, string name, string color);
+	void setSnow(bool snow);
+	string getCard();
+
+protected:
+	bool snow;
+};
+
+class NonBasicLand : public Land {
+public:
+	NonBasicLand(string ability, bool snow, string name, string color);
+	void setAbility(string ability);
+	string getCard();
+
+protected:
+	string ability;
 };
