@@ -4,6 +4,7 @@
 using namespace std;
 class Card {
 public:
+	bool operator==(const Card& b);
     Card(string name, string color);
     virtual string getCard();
     void setCard(string name, string color);

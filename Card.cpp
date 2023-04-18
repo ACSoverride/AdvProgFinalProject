@@ -10,6 +10,15 @@ Card::Card(string name, string color) {
     this->color = color;
 }
 
+bool Card::operator==(const Card& b) {
+	if (this->name == b.name){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 string Card::getCard(){
     return name;
 }
