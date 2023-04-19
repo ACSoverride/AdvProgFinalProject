@@ -6,17 +6,24 @@
 
 Deck::Deck() {}
 
-Deck Deck::operator=(const Deck &b) {
+void Deck::saveDeck(string deckName) {
+	try {
+		fstream fileOut;
+		fileOut.open(deckName, ios::app);
+		for (int i = 0; i < theDeck.size(); i++){
+			fileOut << theDeck[i].getCard() << endl;
+		}
+	}
 }
 
 void Deck::addCard(Card theCard) {
-	deck.push_back(theCard);
+	theDeck.push_back(theCard);
 }
 
 void Deck::deleteCard(Card theCard) {
-	for (int i = 0; i <= deck.size(); i++){
-		if (deck[i] == theCard){
-			deck.erase(deck.begin() + i);
+	for (int i = 0; i < theDeck.size(); i++){
+		if (theDeck[i] == theCard){
+			theDeck.erase(theDeck.begin() + i);
 		}
 	}
 }

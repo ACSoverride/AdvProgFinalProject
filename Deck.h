@@ -3,15 +3,17 @@
 //
 #include <vector>
 #include "Card.h"
+#include <fstream>
+
 using namespace std;
 class Deck {
 public:
 	Deck();
 	void addCard(Card theCard);
-	void saveDeck();
+	void saveDeck(string deckName);
 	void deleteCard(Card theCard);
 private:
-	vector<Card> deck;
+	vector<Card> theDeck;
 };
 
 
