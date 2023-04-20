@@ -13,7 +13,8 @@ public:
 	void addCard(Card * theCard);
 	void saveDeck();
 	void deleteCard(Card  * theCard);
-	bool checkDeck(string cardName);
+	bool static checkDeck(string cardName, string deckName);
+	~Deck();
 private:
 	vector<Card*> theDeck;
 	string deckName;

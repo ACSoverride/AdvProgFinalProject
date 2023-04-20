@@ -1,11 +1,12 @@
 //
 // Created by matti on 4/13/23.
 //
+#include <string>
 using namespace std;
 class Card {
 public:
+	Card(string name, string color);
 	bool operator==(const Card& b);
-    Card(string name, string color);
     virtual string getCard();
     void setCard(string name, string color);
 protected:
