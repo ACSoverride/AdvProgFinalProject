@@ -4,26 +4,58 @@
 
 #include "Deck.h"
 
-Deck::Deck() {}
+Deck::Deck(string deckName) {
+	this->deckName = deckName;
+}
 
-void Deck::saveDeck(string deckName) {
-	try {
+void Deck::saveDeck() {
 		fstream fileOut;
-		fileOut.open(deckName, ios::app);
-		for (int i = 0; i < theDeck.size(); i++){
-			fileOut << theDeck[i].getCard() << endl;
+		if (fileOut){
+			fileOut.open(deckName + ".txt", ios::app);
+			for (int i = 0; i < theDeck.size(); i++) {
+				fileOut << theDeck[i].getCard() << endl;
+			}
 		}
+		else {
+			cout << "Error: Could not write to file";
+		}
+}
+
+bool Deck::checkDeck(string cardName) {
+	ifstream inputFile(cardName + ".txt");
+	if (inputFile) {
+		while (!inputFile.eof()){
+			string input;
+			inputFile >> input;
+			if (input == cardName){
+				return true;
+			}
+		}
+		return false;
+	}
+	else {
+		cout << "Error: Could not read from file";
 	}
 }
 
-void Deck::addCard(Card theCard) {
+void Deck::addCard(Card * theCard) {
 	theDeck.push_back(theCard);
 }
 
-void Deck::deleteCard(Card theCard) {
+void Deck::deleteCard(Card * theCard) {
+	bool found = false;
 	for (int i = 0; i < theDeck.size(); i++){
-		if (theDeck[i] == theCard){
-			theDeck.erase(theDeck.begin() + i);
+		try {
+			if (theDeck[i] == theCard) {
+				theDeck.erase(theDeck.begin() + i);
+				found = true;
+			}
+			if (found == false){
+				throw("card not in deck");
+			}
+		}
+		catch(string error) {
+			cout << "Error: " << error;
 		}
 	}
 }
