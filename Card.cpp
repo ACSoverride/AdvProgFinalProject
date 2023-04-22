@@ -19,6 +19,10 @@ bool Card::operator==(const Card& b) {
 	}
 }
 
+ostream& operator<<(ostream& out, const Card &b) {
+	out << b.name;
+}
+
 string Card::getCard(){
     return name;
 }

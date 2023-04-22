@@ -3,10 +3,12 @@
 //
 #include <string>
 using namespace std;
+
 class Card {
 public:
 	Card(string name, string color);
 	bool operator==(const Card& b);
+	friend ostream& operator<<(ostream& out, const Card& b);
     virtual string getCard();
     void setCard(string name, string color);
 protected:
